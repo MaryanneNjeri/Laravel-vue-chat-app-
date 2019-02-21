@@ -5,10 +5,21 @@
 </template>
 
 <script>
-    export default {
+    export default { 
+        data(){
+            return {
+                messages: []
+            }
+        }, 
+        // in mounted is loaded when the page is loaded  
+
+        // we fetch the messages and store them in the array 
         mounted() {
+            axios.get('/messages').then((response)=>{
+                this.messages = response.data
+            })
             console.log('component mounted')
-        }
+        } 
     }
 </script>
 
