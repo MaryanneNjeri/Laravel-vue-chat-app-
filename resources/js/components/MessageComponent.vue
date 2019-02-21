@@ -2,9 +2,11 @@
 <!--Used to display the messages-->
 <template>
     <!-- the self class is a conditional class where we diffrentiate messages from current signed in users to other users messages-->
-    <div class="message self">
-        <strong class="user">Krunal</strong>
-        <p class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam cumque quaerat rem quia veniam exercitationem, commodi numquam omnis! Non placeat perspiciatis nulla illum cumque ad natus asperiores fuga. Facere, dignissimos.</p>
+    <div class="container">
+    <div class="message self" v-for ="message in user-messages" :key="message.id">
+        <strong class="user">{{message.user.name}}</strong>
+        <p class="body">{{message.body}}</p>
+    </div> 
     </div>
 </template>
 
