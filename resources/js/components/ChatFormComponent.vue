@@ -43,7 +43,7 @@
                     body: this.body,
                     selfMesssage: true,
                     user: {
-                        name: 'Krunal'
+                        name: Laravel.user.name
                     }
                 }
             },
