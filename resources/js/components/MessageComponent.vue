@@ -9,9 +9,10 @@
 </template>
 
 <script>
-    export default {
+    export default { 
+        props:['user-messages'],
         mounted() {
-            console.log('component mounted')
+            console.log(this.user-messages)
         }
     }
 </script>

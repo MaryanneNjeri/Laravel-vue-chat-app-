@@ -1,6 +1,7 @@
 <template>
     <div class="message-area"> 
-        <message-component></message-component> 
+        <!-- we pass the messages to the message component as it is responsible for displaying messages-->
+        <message-component :user-messages="messages"></message-component> 
     </div>
 </template>
 
