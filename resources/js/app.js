@@ -21,10 +21,10 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('chat-component', require('./components/ChatComponent.vue').default);
-Vue.component('user-component', require('./components/UserComponent.vue')); 
-Vue.component('chat-messages-component', require('./components/ChatMessagesComponent.vue'));
-Vue.component('chat-form-component', require('./components/ChatFormComponent.vue')); 
-Vue.component('message-component', require('./components/MessageComponent.vue'));
+Vue.component('user-component', require('./components/UserComponent.vue').default); 
+Vue.component('chat-messages-component', require('./components/ChatMessagesComponent.vue').default);
+Vue.component('chat-form-component', require('./components/ChatFormComponent.vue').default); 
+Vue.component('message-component', require('./components/MessageComponent.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

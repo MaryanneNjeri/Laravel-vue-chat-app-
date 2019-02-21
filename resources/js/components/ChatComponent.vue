@@ -1,3 +1,4 @@
+<!--Contains two child components that is message and form-->
 <template>
     <div class="container">
         <div class="row justify-content-center">
@@ -6,7 +7,9 @@
                     <div class="card-header">Chats</div>
 
                     <div class="card-body">
-                       Chats
+                       Chats 
+                       <chat-messages-component></chat-messages-component> 
+                       <chat-form-component></chat-form-component>
                     </div>
                 </div>
             </div>
