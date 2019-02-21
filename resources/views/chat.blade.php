@@ -10,6 +10,7 @@
 <div class="card-body">
  Chats 
  </div>
+ </div> 
  </div>
  <div class="col-md-4">
  <div class="card"> 
