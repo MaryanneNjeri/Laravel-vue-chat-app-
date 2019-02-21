@@ -1,19 +1,53 @@
 <template>
     <div>
         <form>
-            <textarea cols="25" rows="5" class="form-input"></textarea>
+            <textarea id="body" cols="28" @keydown="typing" v-model="body" rows="5" class="form-input">
+                </textarea>
             <span class="notice"> 
-                Hit Retrun to send message 
-                </span>
+                    Hit Retrun to send message 
+                    </span>
     
         </form>
     </div>
 </template>
 
 <script>
+    import Event from '../event.js';
     export default {
+        data() {
+            return {
+                body: null
+            }
+        },
         mounted() {
             console.log('Component mounted.')
+        },
+        methods: {
+            typing(e) {
+                if (e.keyCode === 13 && !e.shiftKey) {
+                    e.preventDefault();
+                    this.sendMessage();
+                }
+            },
+            sendMessage() {
+                if (!this.body || this.body.trim() === '') {
+                    return
+                }
+                let messageObj = this.buildMessage();
+                Event.$emit('added_message', messageObj);
+                this.body = null
+            },
+            buildMessage() {
+                return {
+                    id: Date.now(),
+                    body: this.body,
+                    selfMesssage: true,
+                    user: {
+                        name: 'Krunal'
+                    }
+                }
+            },
+    
         }
     }
 </script>

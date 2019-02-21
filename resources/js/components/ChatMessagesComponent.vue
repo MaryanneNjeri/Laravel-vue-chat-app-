@@ -5,7 +5,8 @@
     </div>
 </template>
 
-<script>
+<script> 
+ import Event from '../event.js';
     export default { 
         data(){
             return {
@@ -17,9 +18,13 @@
         // we fetch the messages and store them in the array 
         mounted() {
             axios.get('/messages').then((response)=>{
+                console.log(reponse.data)
                 this.messages = response.data
-            })
-            console.log('component mounted')
+            }) 
+            // we listen to the event
+           Event.$on('added_message',(message)=>{
+               this.messages.unshift(message);
+           });
         } 
     }
 </script>

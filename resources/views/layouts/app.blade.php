@@ -10,7 +10,19 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer></script> 
+    <script> 
+    //  we get the username of a signed in user  and assign it to a global avariale now it can be accessed in any vue component
+     window.Laravel = { !! json_encode([
+         'csrfToken' =>csrf_token(),
+         'user'=> [
+             'authenticated' => auth()-> check(),
+             'id'=>auth()->check() ? auth()->user()->id :null 
+             'name'=>auth()->check() ? auth->user()->name: null
+         ]
+     ])
+    !!};
+    </script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
